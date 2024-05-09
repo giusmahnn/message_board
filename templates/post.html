@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Welcome To Posts Page</title>
+</head>
+<body>
+    {% block content %}
+    <h1>All Posts</h1>
+    <ul> <!-- Start of list -->
+    {% for post in posts %}
+    <li> <!-- List item for each post -->
+        <h2>{{ post.header }}</h2>
+        <h3>By {{ post.name }}</h3>
+        <p>{{ post.text | slice:":50" }}...<a href="{% url 'post_detail' pk=post.pk %}">Read More</a>
+        </p> <!-- Display first 50 characters of content -->
+    </li>
+    {% endfor %}
+    </ul> <!-- End of list -->
+    {% endblock content %}
+</body>
+</html>

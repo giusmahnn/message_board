@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Detail</title>
+</head>
+<body>
+    {% block content %}
+    
+        <h1>{{ post.header }}</h1>
+        <h2>By {{ post.name }}</h2>
+        <p>{{ post.text | linebreaks }}</p>
+        <a href="{% url 'post' %}">Back</a>
+        <!-- Additional post details can be displayed here -->
+    
+    {% endblock content %}
+</body>
+</html>
